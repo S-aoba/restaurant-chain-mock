@@ -2,7 +2,7 @@
 namespace Models\Users;
 
 use DateTime;
-use FileConvertible;
+use Interfaces\FileConvertible;
 
 class User implements FileConvertible {
     private int $id;
