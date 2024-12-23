@@ -5,7 +5,7 @@ namespace Models\Restaurants;
 use Models\Restaurants\Company;
 use Interfaces\FileConvertible;
 
-class RestaurantChain extends Company implements FileConvertible {
+class RestaurantChain extends Company {
   public int $chainId;
   /** @var RestarurantLocation[] $restaurantLocations */
   public array $restaurantLocations; 
@@ -55,6 +55,4 @@ class RestaurantChain extends Company implements FileConvertible {
     $this->yearFounded = $yearFounded;
     $this->parentCompany = $parentCompany;
   }
-
-
 }

@@ -4,7 +4,7 @@ namespace Models\Restaurants;
 
 use Interfaces\FileConvertible;
 
-class Company implements FileConvertible {
+class Company {
   public string $name;
   public int $foundingYear;
   public string $description;
