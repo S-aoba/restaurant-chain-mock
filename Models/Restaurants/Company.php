@@ -4,7 +4,7 @@ namespace Models\Restaurants;
 
 use Interfaces\FileConvertible;
 
-class Company {
+class Company implements FileConvertible {
   public string $name;
   public int $foundingYear;
   public string $description;
@@ -40,5 +40,21 @@ class Company {
     $this->country = $country;
     $this->founder = $founder;
     $this->totalEmployees = $totalEmployees;;
+  }
+
+  public function toString(): string{
+    return "";
+  }
+
+  public function toHTML() : string {
+    return "";
+  }
+
+  public function toMarkdown(): string{
+    return "";
+  }
+
+  public function toArray(): array{
+    return [];
   }
 }

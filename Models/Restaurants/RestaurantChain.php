@@ -55,4 +55,20 @@ class RestaurantChain extends Company {
     $this->yearFounded = $yearFounded;
     $this->parentCompany = $parentCompany;
   }
+
+  public function toString(): string{
+    return "";
+  }
+
+  public function toHTML() : string {
+    return "";
+  }
+
+  public function toMarkdown(): string{
+    return "";
+  }
+
+  public function toArray(): array{
+    return [];
+  }
 }

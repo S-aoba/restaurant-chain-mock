@@ -47,4 +47,20 @@ class Employee extends User implements FileConvertible {
     $this->awards = $awards;
   }
 
+  public function toString(): string{
+    return "";
+  }
+
+  public function toHTML() : string {
+    return "";
+  }
+
+  public function toMarkdown(): string{
+    return "";
+  }
+
+  public function toArray(): array{
+    return [];
+  }
+
 }
