@@ -27,7 +27,7 @@ class RandomGenerator {
       $faker->numberBetween(1, 500),   // numberOfLocations
       $faker->boolean,                 // hasDriveThru
       $faker->numberBetween(1900, 2023), // yearFounded
-      $faker->company,  
+      $faker->company,                 // parentCompany
     );
   }
 
