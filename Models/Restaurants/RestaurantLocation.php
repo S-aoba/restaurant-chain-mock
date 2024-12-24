@@ -34,7 +34,26 @@ class RestaurantLocation implements FileConvertible {
   }
 
   public function toString(): string{
-    return "";
+    return sprintf(
+        "
+        Name: %s\n
+        Address: %s\n
+        City: %s\n
+        State: %s\n
+        Zip Code: %s\n
+        Employees: %s\n
+        Open: %s\n
+        Drive-Through: %s\n
+        ",
+        $this->name,
+        $this->address,
+        $this->city,
+        $this->state,
+        $this->zipCode,
+        $this->employees,
+        $this->isOpen ? 'Yes' : 'No',
+        $this->hasDriveThru ? 'Yes' : 'No'
+    );
   }
 
   public function toHTML() : string {
@@ -68,11 +87,26 @@ class RestaurantLocation implements FileConvertible {
   }
 
   public function toMarkdown(): string{
-    return "";
+    return "## Name: {$this->name} 
+            - Address: {$this->address} 
+            - City: {$this->city} 
+            - State: {$this->state} 
+            - Zip Code: {$this->zipCode} 
+            - Employees: {$this->employees} 
+            - Open: {$this->isOpen} 
+            - Drive-Through: {$this->hasDriveThru}";
   }
 
   public function toArray(): array{
-    return [];
+    return [
+        "name" => $this->name,
+        "address" => $this->address,
+        "city" => $this->city,
+        "state" => $this->state,
+        "zipCode" => $this->zipCode,
+        "employees" => $this->employees,
+        "isOpen" => $this->isOpen,
+        "hasDriveThru" => $this->hasDriveThru
+    ];        
   }
-
 }

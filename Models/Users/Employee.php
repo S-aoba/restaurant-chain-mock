@@ -48,9 +48,18 @@ class Employee extends User implements FileConvertible {
     $this->awards = $awards;
   }
 
-  public function toString(): string{
-    return "";
-  }
+  public function toString():string{
+    return sprintf(
+        "Job Title: %d\n
+         Salary: %d\n
+         Start Date: %d\n
+         Awards: %\n",
+        $this->jobTitle,
+        $this->salary,
+        $this->startDate,
+        $this->awards
+    );
+}
 
   public function toHTML() : string {
     return sprintf(
@@ -66,11 +75,18 @@ class Employee extends User implements FileConvertible {
   }
 
   public function toMarkdown(): string{
-    return "";
+    return "- Job Title: {$this->jobTitle}
+          - Salary: {$this->salary}
+          - Start Date: {$this->startDate}
+          - Awards: {$this->awards}";        
   }
 
   public function toArray(): array{
-    return [];
+    return [
+        "Job Title" => $this->jobTitle,
+        "Salary" => $this->salary,
+        "Start Date" => $this->startDate,
+        "Awards" => $this->awards
+    ];
   }
-
 }
