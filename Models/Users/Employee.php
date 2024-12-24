@@ -55,9 +55,9 @@ class Employee extends User implements FileConvertible {
   public function toHTML() : string {
     return sprintf(
     "
-      <div class='p-3 border border-gray-200 font-semibold w-full'>
+      <li class='p-3 border border-gray-200 font-semibold w-full'>
         <p class='truncate'>ID: %d Job Title: %s Start Date: %s</p>
-      </div>
+      </li>
     ",
       parent::getId(),
       $this->jobTitle,

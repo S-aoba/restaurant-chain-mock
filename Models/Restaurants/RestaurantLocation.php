@@ -45,15 +45,17 @@ class RestaurantLocation implements FileConvertible {
 
     return sprintf(
       "
-        <div class='w-full p-2 text-start'>
+        <div class='w-full'>
           <div class='bg-blue-300/50 p-2'>
             <p class='text-blue-500 text-lg font-medium font-mono'>%s</p>
           </div>
-          <p class='text-sm truncate'>Company Name: %s Address: %s Zip Code: %d</p>
-          <h2>Employees: </h2>
-          <ol>
-            %s
-          </ol>
+          <div class='w-full py-2 px-8 flex flex-col space-y-3'>
+            <p class='text-sm truncate'>Company Name: %s Address: %s Zip Code: %d</p>
+            <h2 class='text-xl font-medium font-mono'>Employees: </h2>
+            <ol class='mt-3'>
+              %s
+            </ol>
+          </div>
         </div>
       ",
       $this->name,

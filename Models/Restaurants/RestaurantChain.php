@@ -73,16 +73,18 @@ class RestaurantChain extends Company implements FileConvertible {
 
     return sprintf(
       " 
-      <div class='border border-gray-300'>
-        <div class='text-center'>
-          <h1 class='text-2xl font-medium font-mono'>Restaurant Chain %s</h1>
+      <div>
+        <div class='text-center py-2'>
+          <h1 class='text-4xl font-medium font-mono'>Restaurant Chain %s</h1>
         </div>
-        <div class='bg-gray-400 text-white p-3'>
-          <p>
-            Restarurant Chain Information
-          </p>
+        <div class='border border-gray-300'>
+          <div class='bg-gray-400 text-white p-3'>
+            <p>
+              Restarurant Chain Information
+            </p>
+            </div>
+            %s
         </div>
-        %s
       </div>
       ",
       $this->name,
