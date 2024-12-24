@@ -2,6 +2,7 @@
 
 namespace Models\Users;
 
+use DateTime;
 use Interfaces\FileConvertible;
 use Models\Users\User;
 
@@ -52,7 +53,16 @@ class Employee extends User implements FileConvertible {
   }
 
   public function toHTML() : string {
-    return "";
+    return sprintf(
+    "
+      <div class='p-3 border border-gray-200 font-semibold w-full'>
+        <p class='truncate'>ID: %d Job Title: %s Start Date: %s</p>
+      </div>
+    ",
+      parent::getId(),
+      $this->jobTitle,
+      $this->startDate
+    );
   }
 
   public function toMarkdown(): string{

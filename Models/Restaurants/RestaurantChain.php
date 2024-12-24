@@ -5,7 +5,7 @@ namespace Models\Restaurants;
 use Models\Restaurants\Company;
 use Interfaces\FileConvertible;
 
-class RestaurantChain extends Company {
+class RestaurantChain extends Company implements FileConvertible {
   public int $chainId;
   /** @var RestarurantLocation[] $restaurantLocations */
   public array $restaurantLocations; 
@@ -56,12 +56,38 @@ class RestaurantChain extends Company {
     $this->parentCompany = $parentCompany;
   }
 
+  /** @return RestaurantLocation[] */
+  public function getRestaurantLocations(): array {
+    return $this->restaurantLocations;
+  }
+
   public function toString(): string{
     return "";
   }
 
   public function toHTML() : string {
-    return "";
+    $restaurantLocations = '';
+    foreach($this->restaurantLocations as $location) {
+      $restaurantLocations .= $location->toHTML();
+    }
+
+    return sprintf(
+      " 
+      <div class='border border-gray-300'>
+        <div class='text-center'>
+          <h1 class='text-2xl font-medium font-mono'>Restaurant Chain %s</h1>
+        </div>
+        <div class='bg-gray-400 text-white p-3'>
+          <p>
+            Restarurant Chain Information
+          </p>
+        </div>
+        %s
+      </div>
+      ",
+      $this->name,
+      $restaurantLocations,
+    );
   }
 
   public function toMarkdown(): string{

@@ -10,8 +10,8 @@ class RestaurantLocation implements FileConvertible {
   public string $city;
   public string $state;
   public string $zipCode;
-  /** @var Employee[] $employee */
-  public array $employee;
+  /** @var Employee[] $employees */
+  public array $employees;
   public bool $isOpen;
 
   public function __construct(
@@ -20,7 +20,7 @@ class RestaurantLocation implements FileConvertible {
     string $city,
     string $state,
     string $zipCode,
-    array $employee,
+    array $employees,
     bool $isOpen
   )
   {
@@ -29,7 +29,7 @@ class RestaurantLocation implements FileConvertible {
     $this->city = $city;
     $this->state = $state;
     $this->zipCode = $zipCode;
-    $this->employee = $employee;
+    $this->employees = $employees;
     $this->isOpen = $isOpen;
   }
 
@@ -38,7 +38,30 @@ class RestaurantLocation implements FileConvertible {
   }
 
   public function toHTML() : string {
-    return "";
+    $employeeList = '';
+    foreach($this->employees as $employee){
+      $employeeList .= $employee->toHTML();
+    }
+
+    return sprintf(
+      "
+        <div class='w-full p-2 text-start'>
+          <div class='bg-blue-300/50 p-2'>
+            <p class='text-blue-500 text-lg font-medium font-mono'>%s</p>
+          </div>
+          <p class='text-sm truncate'>Company Name: %s Address: %s Zip Code: %d</p>
+          <h2>Employees: </h2>
+          <ol>
+            %s
+          </ol>
+        </div>
+      ",
+      $this->name,
+      $this->name,
+      $this->adress,
+      $this->zipCode,
+      $employeeList
+    );
   }
 
   public function toMarkdown(): string{

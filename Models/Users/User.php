@@ -56,6 +56,10 @@ class User implements FileConvertible {
         return $currentDate > $this->membershipExpirationDate;
     }
 
+    public function getId(): int {
+        return $this->id;
+    }
+
     public function toString(): string {
         return sprintf(
             "User ID: %d\nName: %s %s\nEmail: %s\nPhone Number: %s\nAddress: %s\nBirth Date: %s\nMembership Expiration Date: %s\nRole: %s\n",
