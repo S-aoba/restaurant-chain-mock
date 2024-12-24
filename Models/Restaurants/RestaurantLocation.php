@@ -51,6 +51,7 @@ class RestaurantLocation implements FileConvertible {
           </div>
           <div class='w-full py-2 px-8 flex flex-col space-y-3'>
             <p class='text-sm truncate'>Company Name: %s Address: %s Zip Code: %d</p>
+            <hr class='my-2 border border-gray-500/80'>
             <h2 class='text-xl font-medium font-mono'>Employees: </h2>
             <ol class='mt-3'>
               %s
